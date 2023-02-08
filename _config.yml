@@ -65,6 +65,11 @@ shortcutKey: true
 toc_collapse:
   type: 0 # 0：关闭该功能 1：启用该功能，并默认全部折叠。2：启用该功能，并默认全部展开
 
+#WW 是否启用全站密码验证
+passwd_check: 
+  on: true       #WW 是否启用全站密码验证：true:启用  false:不启用
+  passwd: 1234   #密码
+
 # 左下角自定义菜单
 menu:
   about:  # '关于' 按钮

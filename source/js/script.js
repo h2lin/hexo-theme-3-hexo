@@ -446,7 +446,7 @@ function syncOutline(_this) {
             $('#outline-list .toc-link[href!="#"]').each(function (index) {
                 var diff = _this.scrollTop - $(_this).find(decodeURI($(this).attr('href')))[0].offsetTop
                 if (diff < -20) {
-                    activeIndex = index === 0 ? 0 : index - 1
+                    activeIndex = index === 0 ? 0 : index - 1 //ww 原主题为什么要 index-1？
                     return false
                 }
             })
@@ -523,8 +523,24 @@ function add_collapse_btn() {
 
 }
 
+//WW 增加全站密码验证功能
+function passwd_check() {
+    var need_passwd_check = $('#theme_passwd_check').val() !== 'false'
+    var passwd = $('#theme_passwd').val()
+
+    if (!need_passwd_check) { return; }
+
+    var input_txt
+
+    do {
+        input_txt = prompt('请输入阅读密码')
+    } while (input_txt != passwd)
+}
 
 $(function () {
+    // 全站密码验证
+    passwd_check();
+
     bind();
     $('[data-title]').quberTip({
         speed: 200
